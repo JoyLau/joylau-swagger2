@@ -17,12 +17,12 @@ import java.util.*;
 @RequestMapping(value="/users")     // 通过这里配置使下面的映射都在/users下，可去除
 public class UserController {
 
-    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
+    private static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
 
-    @ApiOperation(value="获取用户列表", notes="")
+    @ApiOperation(value="获取用户列表", notes="获取用户列表")
     @RequestMapping(value={""}, method= RequestMethod.GET)
     public List<User> getUserList() {
-        List<User> r = new ArrayList<User>(users.values());
+        List<User> r = new ArrayList<>(users.values());
         return r;
     }
 
