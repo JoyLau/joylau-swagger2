@@ -2,6 +2,8 @@ package cn.joylau.code;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -14,10 +16,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-public class JoylauSwagger2Application {
+public class JoylauSwagger2Application extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JoylauSwagger2Application.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(JoylauSwagger2Application.class);
 	}
 
 	@Bean

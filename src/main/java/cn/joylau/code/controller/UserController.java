@@ -22,8 +22,7 @@ public class UserController {
     @ApiOperation(value="获取用户列表", notes="获取用户列表")
     @RequestMapping(value={""}, method= RequestMethod.GET)
     public List<User> getUserList() {
-        List<User> r = new ArrayList<>(users.values());
-        return r;
+        return new ArrayList<>(users.values());
     }
 
     @ApiOperation(value="创建用户", notes="根据User对象创建用户")
